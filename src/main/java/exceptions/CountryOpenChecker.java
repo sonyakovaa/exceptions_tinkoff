@@ -1,14 +1,23 @@
 package exceptions;
 
+import com.sun.source.tree.BreakTree;
+
 public class CountryOpenChecker {
 
     public static String getOpen(final Country country) throws NoSuchCountryException {
-        return switch (country) {
-            case RUSSIA, CHILI -> "open";
-            case USA, HUNGARY -> "limited open";
+        switch (country) {
+            case RUSSIA:
+            case CHILI:
+                return "open";
+            case USA:
+            case HUNGARY:
+                return "limited open";
             /* FIXME: Символ С является символом из кириллицы */
-            case CHINA, UK -> "closed";
-            default -> throw new NoSuchCountryException();
-        };
+            case CHINA:
+            case UK:
+                return "closed";
+            default:
+                throw new NoSuchCountryException();
+        }
     }
 }
