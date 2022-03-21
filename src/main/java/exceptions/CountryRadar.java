@@ -10,7 +10,7 @@ import static exceptions.MessageComposer.getInstructions;
 
 public class CountryRadar {
 
-    public void launch() {
+    public void launch() throws NoSuchCountryException {
         final Scanner scanner = new Scanner(System.in);
         String input;
         Country country;
@@ -20,7 +20,7 @@ public class CountryRadar {
             log(getInstructions());
 
             input = scanner.nextLine().trim();
-            if (" q ".equalsIgnoreCase(input)) {
+            if ("q".equalsIgnoreCase(input)) { // удалила пробел до и после q
                 log("Whatever!");
                 break;
             }
@@ -31,12 +31,17 @@ public class CountryRadar {
                 continue;
             }
 
-            open = getOpen(country);
+            try {
+                open = getOpen(country);
+            }
+            catch (NoSuchCountryException exception) {
+                System.out.println("Country " + input + " not found, try again");
+                continue;
+            }
             finalMessage = getFinalMessage(country, open);
 
             log(finalMessage);
         }
         scanner.close();
     }
-
 }

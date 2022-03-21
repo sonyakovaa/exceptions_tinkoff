@@ -1,4 +1,4 @@
 package exceptions;
 
-public class NoSuchCountryException extends RuntimeException {
+public class NoSuchCountryException extends Exception {
 }
