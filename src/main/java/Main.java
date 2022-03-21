@@ -3,8 +3,7 @@ import exceptions.NoSuchCountryException;
 
 final class Main {
 
-    public static void main(final String[] args) throws NoSuchCountryException {
-
+    public static void main(final String[] args) {
         new CountryRadar().launch();
     }
 }

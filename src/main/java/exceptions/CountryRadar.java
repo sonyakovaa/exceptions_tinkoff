@@ -10,7 +10,7 @@ import static exceptions.MessageComposer.getInstructions;
 
 public class CountryRadar {
 
-    public void launch() throws NoSuchCountryException {
+    public void launch() {
         final Scanner scanner = new Scanner(System.in);
         String input;
         Country country;
